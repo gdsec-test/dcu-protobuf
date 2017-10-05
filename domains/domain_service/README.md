@@ -1,5 +1,5 @@
 # Description
-gRPC based domain service
+[gRPC](http://grpc.io) based domain service
 
 # Location
 DCU Kubernetes deployment
