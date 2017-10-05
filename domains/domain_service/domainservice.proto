@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package suspendmessages;
+package domainmessages;
 
 option go_package="pb";
 
