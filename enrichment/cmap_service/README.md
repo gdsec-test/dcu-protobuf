@@ -1,8 +1,8 @@
 # cmap_service
 graphQL based data enrichment service
 
-#Purpose
+# Purpose
 Provides detailed information regarding domains and shoppers
 
-#Location
+# Location
 https://cmapservice.int.godaddy.com/graphql
