@@ -4,5 +4,5 @@ gRPC based domain service
 # Location
 DCU Kubernetes deployment
 
-#Purpose
+# Purpose
 Provides basic domain based operations
