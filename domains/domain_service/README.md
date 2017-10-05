@@ -8,7 +8,7 @@ DCU Kubernetes deployment (Non-Public)
 Provides basic domain based lookup operations and modifications
 
 # Source
-https://github.secureserver.net/chauser/domainservice
+https://github.secureserver.net/ITSecurity/domainservice
 
 # Examples
 
