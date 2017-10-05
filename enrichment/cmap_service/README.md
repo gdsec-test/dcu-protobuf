@@ -12,7 +12,7 @@ https://github.secureserver.net/ITSecurity/cmap_service
 
 # Examples
 
-* Curl basic hosting and registrar information
+Curl basic hosting and registrar information
 ```
 curl -X POST -H 'Content-Type:application/graphql' 'https://cmapservice.int.godaddy.com/graphql' -d '{domainQuery(domain:"godaddy.com"){host{ hostingCompanyName ip } registrar{ registrarName domainCreateDate }}}'
 ```
@@ -21,7 +21,7 @@ Output
 {"data":{"domainQuery":{"host":{"hostingCompanyName":"GoDaddy.com LLC","ip":"208.109.192.70"},"registrar":{"registrarName":"GoDaddy.com, LLC","domainCreateDate":"1999-03-02"}}}}
 ```
 
-* Enter basic hosting and registrar query into web GUI
+Enter basic hosting and registrar query into web GUI
 
   1. Navigate to https://cmapservice.int.godaddy.com/graphql
   2. Enter the following into the left pane and press the Play button
@@ -40,9 +40,9 @@ Output
   }
 ```
   
-  Hint: pressing Ctrl-Space while your cursor is on the left pane will provide you with possible items to add to your query such as Alexa ranking, ip addresses abuse contacts etc. Be sure to visit the Docs link in the upper right corner to get a sense of all the possible data that can be gathered.
+Hint: pressing Ctrl-Space while your cursor is on the left pane will provide you with possible items to add to your query such as Alexa ranking, ip addresses abuse contacts etc. Be sure to visit the Docs link in the upper right corner to get a sense of all the possible data that can be gathered.
   
-* A more complex web page example
+A more complex web page example
 
 ```
 {
