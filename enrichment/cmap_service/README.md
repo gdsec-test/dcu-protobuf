@@ -24,7 +24,7 @@ Output
 * Enter basic hosting and registrar query into web GUI
 
   1. Navigate to https://cmapservice.int.godaddy.com/graphql
-  2. Enter the following into the left pane
+  2. Enter the following into the left pane and press the Play button
 ```
   {
     domainQuery(domain:"godaddy.com"){
@@ -39,7 +39,6 @@ Output
    }
   }
 ```
-  3. Press the Play button. 
   
   Hint: pressing Ctrl-Space while your cursor is on the left pane will provide you with possible items to add to your query such as Alexa ranking, ip addresses abuse contacts etc. Be sure to visit the Docs link in the upper right corner to get a sense of all the possible data that can be gathered.
   
