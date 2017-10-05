@@ -1,0 +1,58 @@
+syntax="proto3";
+
+package suspendmessages;
+
+option go_package="pb";
+
+message Domain {
+    string domain=1;
+    string domainid=2;
+}
+
+message GetDomainsRequest{
+    string customerid=1;
+}
+
+message GetDomainsResponse{
+    repeated Domain domains=1;
+}
+
+message SuspendDomainsRequest{
+    repeated string domainids=1;
+    string note=2;
+    string user=3;
+}
+
+message SuspendDomainsResponse{
+    int32 count=1;
+}
+
+message UnSuspendDomainsRequest{
+    repeated string domainids=1;
+    string note=2;
+    string user=3;
+}
+
+message UnSuspendDomainsResponse{
+    int32 count=1;
+}
+
+message DomainInStatusRequest {
+    string domain=1;
+    repeated int32 status=2;
+}
+
+message DomainInStatusResponse {
+    bool found=1;
+}
+
+service DomainService{
+    //Retrieves domains for the given shopper
+    rpc GetDomains(GetDomainsRequest) returns(GetDomainsResponse);
+    //Adds an abuse lock for a domain
+    rpc SuspendDomains(SuspendDomainsRequest) returns(SuspendDomainsResponse);
+    //Removes an abuse lock for a domain
+    rpc UnSuspendDomains(UnSuspendDomainsRequest) returns(UnSuspendDomainsResponse);
+    //Determines if the given domain has a status code in the provided list
+    rpc DomainInStatus(DomainInStatusRequest) returns(DomainInStatusResponse);
+}
