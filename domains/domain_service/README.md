@@ -22,7 +22,6 @@ python -m grpc_tools.protoc -Ipath/to/domain_service --python_out=. --grpc_pytho
 
 * Create simple client
 
-test_client.py
 ```
 import logging
 import domainservice_pb2
