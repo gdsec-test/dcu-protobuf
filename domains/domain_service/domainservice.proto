@@ -4,19 +4,6 @@ package domainmessages;
 
 option go_package="pb";
 
-message Domain {
-    string domain=1;
-    string domainid=2;
-}
-
-message GetDomainsRequest{
-    string customerid=1;
-}
-
-message GetDomainsResponse{
-    repeated Domain domains=1;
-}
-
 message SuspendDomainsRequest{
     repeated string domainids=1;
     string note=2;
@@ -37,22 +24,23 @@ message UnSuspendDomainsResponse{
     int32 count=1;
 }
 
-message DomainInStatusRequest {
+message DomainInfoRequest {
     string domain=1;
-    repeated int32 status=2;
 }
 
-message DomainInStatusResponse {
-    bool found=1;
+message DomainInfoResponse {
+    string domain=1;
+    string shopperId=2;
+    int32 domainId=3;
+    string createDate=4; 
+    string status=5;
 }
 
 service DomainService{
-    //Retrieves domains for the given shopper
-    rpc GetDomains(GetDomainsRequest) returns(GetDomainsResponse);
     //Adds an abuse lock for a domain
     rpc SuspendDomains(SuspendDomainsRequest) returns(SuspendDomainsResponse);
     //Removes an abuse lock for a domain
     rpc UnSuspendDomains(UnSuspendDomainsRequest) returns(UnSuspendDomainsResponse);
-    //Determines if the given domain has a status code in the provided list
-    rpc DomainInStatus(DomainInStatusRequest) returns(DomainInStatusResponse);
+    //Gathers information about a given domain
+    rpc DomainInfo(DomainInfoRequest) returns(DomainInfoResponse);
 }
