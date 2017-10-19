@@ -34,11 +34,10 @@ if __name__ == '__main__':
     stub = domainservice_pb2_grpc.DomainServiceStub(channel)
     try:
         resp = stub.GetDomains(
-            domainservice_pb2.GetDomainsRequest(customerid="123456789"),
+            domainservice_pb2.DomainInfo(domain="abc.com"),
             timeout=5
         )
-        for domain in resp.domains:
-            logger.info("{}".format(domain))
+        logger.info("{}".format(resp))
     except grpc.RpcError as e:
         logger.error("Error: {}:{}".format(e, e.code()))
 ```
