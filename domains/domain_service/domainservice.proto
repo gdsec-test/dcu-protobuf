@@ -2,6 +2,8 @@ syntax="proto3";
 
 package domainmessages;
 
+import "google/api/annotations.proto";
+
 option go_package="pb";
 
 message SuspendDomainsRequest{
@@ -38,9 +40,24 @@ message DomainInfoResponse {
 
 service DomainService{
     //Adds an abuse lock for a domain
-    rpc SuspendDomains(SuspendDomainsRequest) returns(SuspendDomainsResponse);
+    rpc SuspendDomains(SuspendDomainsRequest) returns(SuspendDomainsResponse){
+        option (google.api.http) = {
+            post: "/v1/domains/suspenddomain"
+            body: "*"
+        };
+    }
     //Removes an abuse lock for a domain
-    rpc UnSuspendDomains(UnSuspendDomainsRequest) returns(UnSuspendDomainsResponse);
+    rpc UnSuspendDomains(UnSuspendDomainsRequest) returns(UnSuspendDomainsResponse){
+        option (google.api.http) = {
+            post: "/v1/domains/unsuspenddomain"
+            body: "*"
+        };
+    }
     //Gathers information about a given domain
-    rpc DomainInfo(DomainInfoRequest) returns(DomainInfoResponse);
+    rpc DomainInfo(DomainInfoRequest) returns(DomainInfoResponse){
+        option (google.api.http) = {
+            post: "/v1/domains/domaininfo"
+            body: "*"
+        };
+    }
 }
