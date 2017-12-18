@@ -1,0 +1,76 @@
+syntax="proto3";
+
+package kelvinapimessages;
+
+option go_package="pb";
+
+enum AbuseType {
+    "Content"=0;
+    "ChildAbuse"=1;
+    "LawEnforcement"=2;
+}
+
+message CreateTicketRequest{
+    required ABUSE_TYPE type=1;
+    required string source=2;
+    optional string reporter=3;
+    optional string target=4;
+    optional string proxy=5;
+    optional string info=6;
+    optional string infoURL=7;
+    optional string reporterEmail=8;
+}
+
+message CreateTicketResponse{
+    required string ticketID=1;
+}
+
+message GetTicketRequest{
+    required string ticketID=1;
+}
+
+message GetTicketResponse{
+    string ticketID=1;
+    bool closed=2;
+    AbuseType type=3;
+    string source=4;
+    string sourceDomainOrIP=5;
+    string reporter=6;
+    string target=7;
+    string createdAt=8;
+    string closedAt=9;
+}
+
+message UpdateTicketRequest{
+    required string ticketID=1;
+    optional AbuseType type=1;
+    optional bool closed=2;
+    optional string target=5;
+}
+
+message UpdateTicketResponse{
+    string ticketID=1;
+    AbuseType type=2;
+    bool closed=3;
+    string source=4;
+    string sourceDomainOrIP=5;
+    string target=6;
+    string createdStart=7;
+    string closedAt=8;
+}
+
+message GetTicketsRequest{
+    optional AbuseType type=1;
+    optional bool closed=2;
+    optional string source=3;
+    optional string sourceDomainOrIP=4;
+    optional string target=5;
+    optional string createdStart=6;
+    optional string closedAt=7;
+    optional uint64 limit=8; [default=100]
+    optional uint64 offset=9;
+}
+
+message GetTicketsResponse{
+    repeated string ticketID=1;
+}
