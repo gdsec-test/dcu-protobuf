@@ -5,28 +5,28 @@ package kelvinapimessages;
 option go_package="pb";
 
 enum AbuseType {
-    "Content"=0;
-    "ChildAbuse"=1;
-    "LawEnforcement"=2;
+    Content=0;
+    ChildAbuse=1;
+    LawEnforcement=2;
 }
 
 message CreateTicketRequest{
-    required ABUSE_TYPE type=1;
-    required string source=2;
-    optional string reporter=3;
-    optional string target=4;
-    optional string proxy=5;
-    optional string info=6;
-    optional string infoURL=7;
-    optional string reporterEmail=8;
+    AbuseType type=1;
+    string source=2;
+    string reporter=3;
+    string target=4;
+    string proxy=5;
+    string info=6;
+    string infoURL=7;
+    string reporterEmail=8;
 }
 
 message CreateTicketResponse{
-    required string ticketID=1;
+    string ticketID=1;
 }
 
 message GetTicketRequest{
-    required string ticketID=1;
+    string ticketID=1;
 }
 
 message GetTicketResponse{
@@ -42,35 +42,37 @@ message GetTicketResponse{
 }
 
 message UpdateTicketRequest{
-    required string ticketID=1;
-    optional AbuseType type=1;
-    optional bool closed=2;
-    optional string target=5;
-}
-
-message UpdateTicketResponse{
     string ticketID=1;
     AbuseType type=2;
     bool closed=3;
-    string source=4;
-    string sourceDomainOrIP=5;
-    string target=6;
-    string createdStart=7;
-    string closedAt=8;
+    string target=4;
+}
+
+message UpdateTicketResponse{
+    bool closed=1;
+    AbuseType type=2;
+    string target=3;
 }
 
 message GetTicketsRequest{
-    optional AbuseType type=1;
-    optional bool closed=2;
-    optional string source=3;
-    optional string sourceDomainOrIP=4;
-    optional string target=5;
-    optional string createdStart=6;
-    optional string closedAt=7;
-    optional uint64 limit=8; [default=100]
-    optional uint64 offset=9;
+    AbuseType type=1;
+    bool closed=2;
+    string source=3;
+    string sourceDomainOrIP=4;
+    string target=5;
+    string createdStart=6;
+    string closedAt=7;
+    uint64 limit=8;
+    uint64 offset=9;
 }
 
 message GetTicketsResponse{
     repeated string ticketID=1;
+}
+
+service KelvinAPI{
+    rpc CreateTicket(CreateTicketRequest) returns(CreateTicketResponse){}
+    rpc UpdateTicket(UpdateTicketRequest) returns(UpdateTicketResponse){}
+    rpc GetTicket(GetTicketRequest) returns(GetTicketResponse){}
+    rpc GetTickets(GetTicketsRequest) returns(GetTicketsResponse){}
 }
