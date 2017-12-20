@@ -4,21 +4,14 @@ package kelvinapimessages;
 
 option go_package="pb";
 
-enum AbuseType {
-    Content=0;
-    ChildAbuse=1;
-    LawEnforcement=2;
-}
-
 message CreateTicketRequest{
-    AbuseType type=1;
+    string type=1;
     string source=2;
     string reporter=3;
     string target=4;
     string proxy=5;
     string info=6;
-    string infoURL=7;
-    string reporterEmail=8;
+    string reporterEmail=7;
 }
 
 message CreateTicketResponse{
@@ -31,43 +24,57 @@ message GetTicketRequest{
 
 message GetTicketResponse{
     string ticketID=1;
-    bool closed=2;
-    AbuseType type=3;
+    string closedAt=2;
+    string type=3;
     string source=4;
     string sourceDomainOrIP=5;
     string reporter=6;
     string target=7;
-    string createdAt=8;
-    string closedAt=9;
+    bool isTicketClosed=8;
+    string createdAt=9;
+    string ticketDuration=10;
+    string resolution=11;
+    string internalResolution=12;
+    string ticketCategory=13;
+    string info=14;
+    string reporterEmail=15;
 }
 
 message UpdateTicketRequest{
     string ticketID=1;
-    AbuseType type=2;
-    bool closed=3;
+    string type=2;
+    bool isTicketClosed=3;
     string target=4;
+    string resolution=5;
+    string internalResolution=6;
+    string ticketCategory=7;
 }
 
 message UpdateTicketResponse{
-    bool closed=1;
-    AbuseType type=2;
-    string target=3;
+    string ticketID=1;
+    string type=2;
+    bool isTicketClosed=3;
+    string target=4;
+    string resolution=5;
+    string internalResolution=6;
+    string ticketCategory=7;
 }
 
 message GetTicketsRequest{
-    AbuseType type=1;
-    bool closed=2;
+    string type=1;
+    bool isTicketClosed=2;
     string source=3;
     string sourceDomainOrIP=4;
     string target=5;
-    string createdStart=6;
+    string createdAt=6;
     string closedAt=7;
-    uint64 limit=8;
-    uint64 offset=9;
+    string limit=8;
+    string offset=9;
+    string reporter=10;
 }
 
 message GetTicketsResponse{
-    repeated string ticketID=1;
+    repeated string ticketIDs=1;
 }
 
 service KelvinAPI{
