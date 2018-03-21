@@ -8,7 +8,7 @@ DCU Kubernetes deployment (Non-Public)
 Provides basic CRUD functionality for the Kelvin API.
 
 # Source
-https://github.secureserver.net/ITSecurity/kelvin-api
+https://github.secureserver.net/ITSecurity/kelvin-service
 
 # Examples
 
@@ -28,11 +28,11 @@ import (
 	"log"
 	"time"
 
-	"github.secureserver.net/ITSecurity/kelvin-api/pb"
+	"github.secureserver.net/ITSecurity/kelvin-service/pb"
 	"google.golang.org/grpc"
 )
 
-const addr = "127.0.0.1:9000"
+const addr = "127.0.0.1:50051"
 
 func main() {
 	conn, err := grpc.Dial(addr, grpc.WithInsecure())
