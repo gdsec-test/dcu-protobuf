@@ -2,27 +2,20 @@
 
 @Library('ECM@master') _
 
-node {
-    checkout scm
-}
-
 pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source'
+                checkout scm
+            }
+        }
+        stage('Generating stub files') {
             steps {
                 echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh ./build.sh
             }
         }
     }
