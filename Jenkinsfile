@@ -5,7 +5,9 @@ pipeline {
 
     stages {
         stage('Checking out source') {
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
         stage('Building stub files') {
             steps {
