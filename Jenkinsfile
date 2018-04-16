@@ -12,7 +12,7 @@ pipeline {
         stage('Building stub files') {
             steps {
                 echo 'Building....'
-                sh('build.sh')
+                sh "./build.sh"
             }
         }
     }
