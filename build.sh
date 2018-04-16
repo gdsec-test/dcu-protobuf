@@ -48,7 +48,7 @@ function buildProtoForTypes {
       rm -rf $REPOPATH/$reponame
 
       echo "Cloning repo: https://github.secureserver.net/ITSecurity/$reponame.git"
-      https://github.secureserver.net/ITSecurity/$reponame.git $REPOPATH/$reponame
+      git clone https://github.secureserver.net/ITSecurity/$reponame.git $REPOPATH/$reponame
 
       setupBranch $REPOPATH/$reponame
 
