@@ -42,13 +42,8 @@ function buildProtoForTypes {
   if [ -f .protolangs ]; then
     while read lang; do
       reponame="dcu_services-$target-$lang"
-      echo $lang
-
 
       rm -rf $REPOPATH/$reponame
-
-      echo $USER
-      echo whoami
 
       echo "Cloning repo: git@github.secureserver.net:ITSecurity/$reponame.git"
       git clone git@github.secureserver.net:ITSecurity/$reponame.git $REPOPATH/$reponame
