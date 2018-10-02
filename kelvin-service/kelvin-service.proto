@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package kelvinapimessages;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package="pb";
 
 message CreateTicketRequest{
@@ -26,14 +28,14 @@ message GetTicketRequest{
 
 message GetTicketResponse{
     string ticketID=1;
-    string closedAt=2;
+    google.protobuf.Timestamp closedAt=2;
     string type=3;
     string source=4;
     string sourceDomainOrIP=5;
     string reporter=6;
     string target=7;
     bool isTicketClosed=8;
-    string createdAt=9;
+    google.protobuf.Timestamp createdAt=9;
     string ticketDuration=10;
     string resolution=11;
     string internalResolution=12;
