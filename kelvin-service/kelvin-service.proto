@@ -37,7 +37,6 @@ message GetTicketResponse{
     bool isTicketClosed=8;
     google.protobuf.Timestamp createdAt=9;
     string ticketDuration=10;
-    string resolution=11;
     string internalResolution=12;
     string ticketCategory=13;
     string info=14;
@@ -49,7 +48,6 @@ message UpdateTicketRequest{
     string type=2;
     bool isTicketClosed=3;
     string target=4;
-    string resolution=5;
     string internalResolution=6;
     string ticketCategory=7;
 }
@@ -59,7 +57,6 @@ message UpdateTicketResponse{
     string type=2;
     bool isTicketClosed=3;
     string target=4;
-    string resolution=5;
     string internalResolution=6;
     string ticketCategory=7;
 }
