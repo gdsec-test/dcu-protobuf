@@ -7,6 +7,11 @@ import "google/protobuf/timestamp.proto";
 option go_package="pb";
 
 message CreateTicketRequest{
+    message TicketMetadata{
+        int32  iris_id=1;
+        string iris_reporter=2;
+        string iris_created=3;
+    }
     string type=1;
     string source=2;
     string sourceDomainOrIP=3;
@@ -15,6 +20,7 @@ message CreateTicketRequest{
     string proxy=6;
     string info=7;
     string reporterEmail=8;
+    TicketMetadata metadata=9;
 }
 
 message CreateTicketResponse{
