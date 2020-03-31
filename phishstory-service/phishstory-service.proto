@@ -21,6 +21,7 @@ message CreateTicketRequest{
     }
 
     TicketMetadata metadata=11;
+    string         reporterEmail=12;
 }
 
 message CreateTicketResponse{
