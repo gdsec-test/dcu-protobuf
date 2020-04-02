@@ -1,6 +1,8 @@
 # DCU Services
 DCU Services provides a monorepo for storage of protobuf files. It also supports the automatic generation of server/client code for these definitions.
 
+  *[Main]* | [Docs] 
+  
 ## Adding a Service
 If you would like to add a service to this repository, create a top level directory that contains the following:
 1. A proto file matching your top level service directory e.g. `phishstory-service/phishstory-service.proto`
@@ -13,3 +15,7 @@ After this has completed your generated stub code will be located in the reposit
 
 ## License
 The license specified in this repository applies only to the `build.sh` file which has been modified from Namely's [docker-protoc](https://github.com/namely/docker-protoc).
+
+
+[Main]: https://github.secureserver.net/digital-crimes/dcu_services
+[Docs]: https://github.secureserver.net/digital-crimes/dcu_services/tree/master/docs
