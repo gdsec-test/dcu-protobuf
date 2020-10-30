@@ -18,6 +18,7 @@ message CreateTicketRequest{
         int32  iris_id=1;
         string iris_reporter=2;
         string iris_created=3;
+        float fraud_score=4;
     }
 
     TicketMetadata metadata=11;
