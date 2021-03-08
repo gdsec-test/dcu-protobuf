@@ -7,6 +7,28 @@
 4. Monitor the Jenkins build at https://infosec-dcu.jenkins.int.godaddy.com/job/dcu_services/
 5. Depending on the status of the Jenkins build, follow the appropriate section below.
 
+### Jenkins is not responding or is down
+
+`infosec-dcu.jenkins.int.godaddy.com` resolves to `jm1528279583qyf.jenkins.int.godaddy.com` which as of 02/22/2021, is `10.37.119.11`
+
+#### Check Jenkins status
+
+1. `ssh jm1528279583qyf.jenkins.int.godaddy.com`
+2. Check status: `sudo service jenkins status`
+   1. The desired output should contain: `Active: active (running)`
+3. Review log file: `sudo tail -1000f /var/log/jenkins/jenkins.log`
+
+#### Restart Jenkins service
+
+1. Restart service: `sudo service jenkins restart`
+2. Check status: `sudo service jenkins status`
+   1. The desired output should contain: `Active: active (running)`
+3. The [URL](https://infosec-dcu.jenkins.int.godaddy.com/) should display a login page after a few minutes
+
+### Jenkins service user
+
+The `dcu_services` pipeline should be configured to use the service account `0258334a28ecm` for accessing github.  That resource is defined in OpenStack [here](https://cloud.int.godaddy.com/grouping/efforts/888e996c2b1ba6007aa46ab3e4da1540), which also allows you to change the password.  However, access to github now requires the usage of a personal token, which is why the `bxberry` account is currently configured for github access (as of 02/22/2021).
+
 ### Your Jenkins build failed
 
 A common error could be:
