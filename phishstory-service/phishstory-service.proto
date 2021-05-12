@@ -20,6 +20,9 @@ message CreateTicketRequest{
         string iris_created=3;
         float fraud_score=4;
         string reclassified_from=5;
+        string product=6;
+        string userName=7;
+        string guid=8;
     }
 
     TicketMetadata metadata=11;
