@@ -25,16 +25,16 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:	
           name: domain-service-artifacts
-          path: gen/pb-go/*.go
+          path: domain-service/gen/pb-go/*.go
       - uses: actions/upload-artifact@v2
         with:	
           name: phishstory-service-artifacts
-          path: gen/pb_python/*
+          path: phishstory-service/gen/pb_python/*
       - uses: actions/upload-artifact@v2
         with:	
           name: kelvin-service-python-artifacts
-          path: gen/pb_python/*
+          path: kelvin-service/gen/pb_python/*
       - uses: actions/upload-artifact@v2
         with:	
           name: kelvin-service-golang-artifacts
-          path: gen/pb-go/*.go
+          path: kelvin-service/gen/pb-go/*.go
