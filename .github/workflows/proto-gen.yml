@@ -1,0 +1,40 @@
+name: Protobuf Generator
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  proto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate domain-service Protobufs
+        run: |
+          cd domain-service
+          docker run -v `pwd`:/defs namely/protoc-all:1.9 -f domain-service.proto -l go
+      - name: Generate kelvin-service Protobufs
+        run: |
+          cd kelvin-service
+          docker run -v `pwd`:/defs namely/protoc-all:1.9 -f kelvin-service.proto -l go
+          docker run -v `pwd`:/defs namely/protoc-all:1.9 -f kelvin-service.proto -l python
+      - name: Generate phishstory-service Protobufs
+        run: |
+          cd phishstory-service
+          docker run -v `pwd`:/defs namely/protoc-all:1.9 -f phishstory-service.proto -l python
+      - uses: actions/upload-artifact@v2
+        with:	
+          name: domain-service-artifacts
+          path: ${{ github.workspace }}/gen/pb-go/*.go
+      - uses: actions/upload-artifact@v2
+        with:	
+          name: phishstory-service-artifacts
+          path: ${{ github.workspace }}/gen/pb_python/*
+      - uses: actions/upload-artifact@v2
+        with:	
+          name: kelvin-service-python-artifacts
+          path: ${{ github.workspace }}/gen/pb_python/*
+      - uses: actions/upload-artifact@v2
+        with:	
+          name: kelvin-service-golang-artifacts
+          path: ${{ github.workspace }}/gen/pb-go/*.go
