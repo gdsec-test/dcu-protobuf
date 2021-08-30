@@ -15,14 +15,11 @@ message CreateTicketRequest{
     string         infoUrl=10;
 
     message TicketMetadata {
-        int32  iris_id=1;
-        string iris_reporter=2;
-        string iris_created=3;
-        float fraud_score=4;
-        string reclassified_from=5;
-        string product=6;
-        string userName=7;
-        string guid=8;
+        float fraud_score=1;
+        string reclassified_from=2;
+        string product=3;
+        string userName=4;
+        string guid=5;
     }
 
     TicketMetadata metadata=11;
