@@ -8,10 +8,7 @@ option go_package="pb";
 
 message CreateTicketRequest{
     message TicketMetadata{
-        int32  iris_id=1;
-        string iris_reporter=2;
-        string iris_created=3;
-        string reclassified_from=4;
+        string reclassified_from=1;
     }
     string type=1;
     string source=2;
