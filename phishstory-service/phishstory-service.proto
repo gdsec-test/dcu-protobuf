@@ -18,7 +18,7 @@ message CreateTicketRequest{
         float fraud_score=1;
         string reclassified_from=2;
         string product=3;
-        string userName=4;
+        string username=4;
         string guid=5;
     }
 
