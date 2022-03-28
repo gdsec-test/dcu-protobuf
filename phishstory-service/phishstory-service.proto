@@ -21,6 +21,7 @@ message CreateTicketRequest{
         string username=4;
         string guid=5;
         string shopperId=6;
+        string customerId=7;
     }
 
     TicketMetadata metadata=11;
