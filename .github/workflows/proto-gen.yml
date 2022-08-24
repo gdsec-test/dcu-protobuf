@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   proto:
-    runs-on: ubuntu-latest
+    runs-on: [csetubuntu]
     steps:
       - uses: actions/checkout@v2
       - name: Generate domain-service Protobufs
