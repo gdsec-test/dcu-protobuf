@@ -19,6 +19,8 @@ message CreateTicketRequest{
     string info=7;
     string reporterEmail=8;
     TicketMetadata metadata=9;
+    string reporting_customer_id=10;
+    string infoUrl=11;
 }
 
 message CreateTicketResponse{
